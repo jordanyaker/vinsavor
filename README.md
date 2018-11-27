@@ -1,3 +1,9 @@
+## VinSavor
+
+A collection of wine tasting tools.
+
+This is a toy project for teaching myself React... the tools will be based on good data, however.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
