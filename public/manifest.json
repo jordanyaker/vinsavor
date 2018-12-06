@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "VinSavor",
+  "name": "VinSavor",
+  "description": "A collection of wine snobbing tools",
   "icons": [
     {
       "src": "favicon.ico",
