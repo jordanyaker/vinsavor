@@ -2,44 +2,98 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class SightForm extends React.Component {
-    render() {
-        let primaryColorSelect;
+    clarityOptionList() {
+        let list;
+
+        list = new Map();
+        list.set('clear', 'Clear');
+        list.set('hazy', 'Hazy');
+        list.set('turbid', 'Turbid');
+
+        return list;
+    }
+
+    concentrationOptionList() {
+        let list;
+
+        list = new Map();
+        list.set('pale', 'Pale');
+        list.set('medium', 'Medium');
+        list.set('deep', 'Deep');
+
+        return list;
+    }
+
+    primaryColorOptionList() {
+        let list;
+
+        list = new Map();
+
+        console.log(this.props);
 
         if (this.props.style === 'white') {
-            primaryColorSelect = <select value={this.props.primaryColor} onChange={this.props.handlePrimaryColor}>
-                <option value="silver">Silver</option>
-                <option value="green">Green</option>
-                <option value="copper">Copper</option>
-            </select>
+            list.set('silver', 'Silver');
+            list.set('green', 'Green');
+            list.set('copper', 'Copper');
         } else if (this.props.style === 'red') {
-            primaryColorSelect = <select value={this.props.primaryColor} onChange={this.props.handlePrimaryColor}>
-                <option value="purple">Purple</option>
-                <option value="ruby">Ruby</option>
-                <option value="red">Red</option>
-                <option value="garnet">Garnet</option>
-            </select>
+            list.set('purple', 'Purple');
+            list.set('ruby', 'Ruby');
+            list.set('red', 'Red');
+            list.set('garnet', 'Garnet');    
         }
 
+        return list;
+    }
+
+    render() {
         return (
             <div>
                 <h2>Sight</h2>
-                <h3>Clarity</h3>
-                <select value={this.props.clarity} onChange={this.props.handleClarity}>
-                    <option value="clear">Clear</option>
-                    <option value="hazy">Hazy</option>
-                    <option value="coconut">Turbid</option>
-                </select>
+                <div>
+                    <SelectElement label="Clarity"
+                                value={this.props.clarity}
+                                handler={this.props.handleClarity}
+                                options={this.clarityOptionList()} />
+                </div>
 
-                <h3>Concentration</h3>
-                <select value={this.props.concentration} onChange={this.props.handleConcentration}>
-                    <option value="pale">Pale</option>
-                    <option value="medium">Medium</option>
-                    <option value="deep">Deep</option>
-                </select>
+                <div>
+                    <SelectElement label="Concentration"
+                                value={this.props.concentration}
+                                handler={this.props.handleConcentration}
+                                options={this.concentrationOptionList()} />
+                </div>
 
-                <h3>Primary Color</h3>
-                {primaryColorSelect}
+                <div>
+                    <SelectElement label="Primary Color"
+                                value={this.props.primaryColor}
+                                handler={this.props.handlePrimaryColor}
+                                options={this.primaryColorOptionList()} />
+                </div>
             </div>
+        );
+    }
+}
+
+class SelectElement extends React.Component {
+    optionElements(options) {
+        let resultList = [];
+        
+        options.forEach((value, key) => {
+            resultList.push(<option key={key} value={key}>{value}</option>);
+        });
+
+        return resultList;
+    }
+
+    render() {
+        return (
+            <label>
+                {this.props.label}:<br />
+                <select value={this.props.value} onChange={this.props.handler}>
+                    <option value="">Select One</option>
+                    {this.optionElements(this.props.options)}
+                </select>
+            </label>
         );
     }
 }
@@ -83,10 +137,21 @@ class VinSavor extends React.Component {
     handlePrimaryColor(event) {
         this.setState({primaryColor: event.target.value});
     }
+
+    styleOptionList() {
+        let list;
+
+        list = new Map();
+        list.set('red', 'Red');
+        list.set('white', 'White');
+
+        return list;
+    }
+
     render() {
         let sightForm;
 
-        if (this.state.style != '') {
+        if (this.state.style !== '') {
             sightForm = <SightForm  style={this.state.style}
                                     clarity={this.state.clarity}
                                     handleClarity={this.handleClarity}
@@ -96,15 +161,15 @@ class VinSavor extends React.Component {
                                     handlePrimaryColor={this.handlePrimaryColor}
                                     />
         }
+
         return (
             <form>
                 <h1>VinSavor</h1>
-                <h2>Style</h2>
-                <select value={this.state.style} onChange={this.handleStyle}>
-                    <option value="">Select your wine style</option>
-                    <option value="white">White</option>
-                    <option value="red">Red</option>
-                </select>
+                <h2>General Style</h2>
+                <SelectElement label="Style"
+                               value={this.state.style}
+                               handler={this.handleStyle}
+                               options={this.styleOptionList()} />
 
                 {sightForm}
             </form>
