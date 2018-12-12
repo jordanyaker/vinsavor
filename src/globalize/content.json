@@ -7,15 +7,23 @@
                 "red": "Red Wine",
                 "white": "White Wine"
             },
-            "primaryColor": {
-                "label": "Primary Color",
+            "color": {
+                "primary": "Primary Color",
+                "secondary": "Secondary Color",
+                "blue": "Blue",
+                "brown": "Brown",
                 "copper": "Copper",
                 "garnet": "Garnet",
+                "gold": "Gold",
                 "green": "Green",
+                "orange": "Orange",
                 "purple": "Purple",
                 "red": "Red",
                 "ruby": "Ruby",
-                "silver": "Silver"    
+                "silver": "Silver",
+                "straw": "Straw",
+                "waterWhite": "Water White",
+                "yellow": "Yellow"
             },
             "concentration": {
                 "label": "Concentration",

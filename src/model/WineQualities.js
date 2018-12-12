@@ -52,11 +52,39 @@ class WineQualities {
     }
 
     primaryColorLabel() {
-        return this.content.translate("descriptions.primaryColor.label")
+        return this.content.translate("descriptions.color.primary")
     }
 
     primaryColorOptions(style) {
-        let cat = "primaryColor.";
+        let cat = "color.";
+
+        // Using a switch statement to make it easier to add rose and orange in the future
+        switch(style) {
+            case 'white':
+                return [
+                    ["waterWhite", this.message( cat + "waterWhite")],
+                    ["straw", this.message( cat + "straw" )],
+                    ["yellow", this.message( cat + "yellow" )],
+                    ["gold", this.message( cat + "gold" )]
+                ]
+            break;
+            default:
+                return [
+                    ["purple", this.message( cat + "purple" )],
+                    ["ruby", this.message( cat + "ruby" )],
+                    ["red", this.message( cat + "red" )],
+                    ["garnet", this.message( cat + "garnet" )]
+                ]
+        }
+    }
+
+    secondaryColorLabel() {
+        return this.content.translate("descriptions.color.secondary")
+    }
+
+
+    secondaryColorOptions(style) {
+        let cat = "color.";
 
         // Using a switch statement to make it easier to add rose and orange in the future
         switch(style) {
@@ -69,10 +97,11 @@ class WineQualities {
             break;
             default:
                 return [
-                    ["purple", this.message( cat + "purple" )],
+                    ["orange", this.message( cat + "orange" )],
+                    ["blue", this.message( cat + "blue" )],
                     ["ruby", this.message( cat + "ruby" )],
-                    ["red", this.message( cat + "red" )],
-                    ["garnet", this.message( cat + "garnet" )]
+                    ["garnet", this.message( cat + "garnet" )],
+                    ["brown", this.message( cat + "brown" )]
                 ]
         }
     }
