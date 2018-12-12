@@ -7,6 +7,8 @@ import handleSetStyle from '../handler/handleSetStyle';
 import handleSetClarity from '../handler/handleSetClarity';
 import handleSetConcentration from '../handler/handleSetConcentration';
 import handleSetPrimaryColor from '../handler/handleSetPrimaryColor';
+import handleSecondaryColor from '../handler/handleSecondaryColor';
+handleSecondaryColor
 
 class VinSavor extends React.Component {
     constructor(props) {
@@ -15,7 +17,8 @@ class VinSavor extends React.Component {
             clarity: '',
             concentration: '',
             style: '',
-            primaryColor: ''
+            primaryColor: '',
+            secondaryColor: ''
         };
 
         this.content = new Translate("en");
@@ -24,6 +27,7 @@ class VinSavor extends React.Component {
         this.handleClarity = handleSetClarity.bind(this);
         this.handleConcentration = handleSetConcentration.bind(this);
         this.handlePrimaryColor = handleSetPrimaryColor.bind(this);
+        this.handleSecondaryColor = handleSecondaryColor.bind(this);
     }
     
     render() {
@@ -37,7 +41,9 @@ class VinSavor extends React.Component {
                                     concentration={this.state.concentration}
                                     handleConcentration={this.handleConcentration}
                                     primaryColor={this.state.primaryColor}
+                                    secondaryColor={this.state.secondaryColor}
                                     handlePrimaryColor={this.handlePrimaryColor}
+                                    handleSecondaryColor={this.handleSecondaryColor}
                                     wineQualities={wineQualities}
                                     />
         }

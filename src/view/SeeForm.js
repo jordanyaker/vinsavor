@@ -6,6 +6,7 @@ class SeeForm extends React.Component {
         let clarityOptions = this.props.wineQualities.clarityOptions();
         let concentrationOptions = this.props.wineQualities.concentrationOptions();
         let primaryColorOptions = this.props.wineQualities.primaryColorOptions(this.props.style);
+        let secondaryColorOptions = this.props.wineQualities.secondaryColorOptions(this.props.style);
 
         return (
             <div>
@@ -29,6 +30,13 @@ class SeeForm extends React.Component {
                                 value={this.props.primaryColor}
                                 handler={this.props.handlePrimaryColor}
                                 options={primaryColorOptions} />
+                </div>
+
+                <div>
+                    <SelectElement label={this.props.wineQualities.secondaryColorLabel()}
+                                value={this.props.secondaryColor}
+                                handler={this.props.handleSecondaryColor}
+                                options={secondaryColorOptions} />
                 </div>
             </div>
         );
