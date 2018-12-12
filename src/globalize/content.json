@@ -1,0 +1,34 @@
+{
+    "en": {
+        "siteName": "VinSavor",
+        "descriptions": {
+            "style": {
+                "label": "General Style",
+                "red": "Red Wine",
+                "white": "White Wine"
+            },
+            "primaryColor": {
+                "label": "Primary Color",
+                "copper": "Copper",
+                "garnet": "Garnet",
+                "green": "Green",
+                "purple": "Purple",
+                "red": "Red",
+                "ruby": "Ruby",
+                "silver": "Silver"    
+            },
+            "concentration": {
+                "label": "Concentration",
+                "deep": "Deep",
+                "medium": "Medium",
+                "pale": "Pale"
+            },
+            "clarity": {
+                "label": "Clarity",
+                "hazy": "Hazy",
+                "clear": "Clear",
+                "turbid": "Turbid"
+            }
+        }
+    }
+}
