@@ -1,7 +1,7 @@
 import React from 'react';
 import SelectElement from './SelectElement';
 
-class SightForm extends React.Component {
+class SeeForm extends React.Component {
     render() {
         let clarityOptions = this.props.wineQualities.clarityOptions();
         let concentrationOptions = this.props.wineQualities.concentrationOptions();
@@ -35,4 +35,4 @@ class SightForm extends React.Component {
     }
 }
 
-export default SightForm;
+export default SeeForm;

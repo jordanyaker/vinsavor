@@ -1,5 +1,5 @@
 import React from 'react';
-import SightForm from './SightForm';
+import SeeForm from './SeeForm';
 import SelectElement from './SelectElement';
 import Translate from '../globalize/Translate';
 import WineQualities from '../model/WineQualities';
@@ -27,11 +27,11 @@ class VinSavor extends React.Component {
     }
     
     render() {
-        let sightForm;
+        let seeForm;
         let wineQualities = new WineQualities(this.content);
 
         if (this.state.style !== '') {
-            sightForm = <SightForm  style={this.state.style}
+            seeForm = <SeeForm  style={this.state.style}
                                     clarity={this.state.clarity}
                                     handleClarity={this.handleClarity}
                                     concentration={this.state.concentration}
@@ -50,7 +50,7 @@ class VinSavor extends React.Component {
                                handler={this.handleStyle}
                                options={wineQualities.styleOptions()} />
 
-                {sightForm}
+                {seeForm}
             </form>
         );
     }
