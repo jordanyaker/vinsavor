@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import optionElements from './optionElements';
 
-class SelectElement extends React.Component {
+class SelectElement extends Component {
     render() {
         return (
             <label>

@@ -1,5 +1,3 @@
-import Translate from '../globalize/Translate';
-
 class WineQualities {
     constructor(content) {
         this.content = content;

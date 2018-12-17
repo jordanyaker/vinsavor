@@ -29,33 +29,39 @@ class VinSavor extends Component {
         this.handleSecondaryColor = handleSecondaryColor.bind(this);
     }
     
-    render() {
-        let seeForm;
-        let wineQualities = new WineQualities(this.content);
+    renderSeeForm(wineQualities) {
+        let {style, clarity, concentration, primaryColor, secondaryColor} = this.state;
 
-        if (this.state.style !== '') {
-            seeForm = <SeeForm  style={this.state.style}
-                                    clarity={this.state.clarity}
-                                    handleClarity={this.handleClarity}
-                                    concentration={this.state.concentration}
-                                    handleConcentration={this.handleConcentration}
-                                    primaryColor={this.state.primaryColor}
-                                    secondaryColor={this.state.secondaryColor}
-                                    handlePrimaryColor={this.handlePrimaryColor}
-                                    handleSecondaryColor={this.handleSecondaryColor}
-                                    wineQualities={wineQualities}
-                                    />
+        if (style !== '') {
+            return <SeeForm style={style}
+                            clarity={clarity}
+                            handleClarity={this.handleClarity}
+                            concentration={concentration}
+                            handleConcentration={this.handleConcentration}
+                            primaryColor={primaryColor}
+                            secondaryColor={secondaryColor}
+                            handlePrimaryColor={this.handlePrimaryColor}
+                            handleSecondaryColor={this.handleSecondaryColor}
+                            wineQualities={wineQualities}
+                            />
+        } else {
+            return null;
         }
+    }
+
+    render() {
+        let wineQualities = new WineQualities(this.content);
+        let {style} = this.state;
 
         return (
             <form>
                 <h1>{this.content.translate("siteName")}</h1>
                 <SelectElement label={wineQualities.styleLabel()}
-                               value={this.state.style}
+                               value={style}
                                handler={this.handleStyle}
                                options={wineQualities.styleOptions()} />
 
-                {seeForm}
+                {this.renderSeeForm(wineQualities)}
             </form>
         );
     }
