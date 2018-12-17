@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import SeeForm from './SeeForm';
 import SelectElement from './SelectElement';
 import Translate from '../globalize/Translate';
@@ -8,9 +8,8 @@ import handleSetClarity from '../handler/handleSetClarity';
 import handleSetConcentration from '../handler/handleSetConcentration';
 import handleSetPrimaryColor from '../handler/handleSetPrimaryColor';
 import handleSecondaryColor from '../handler/handleSecondaryColor';
-handleSecondaryColor
 
-class VinSavor extends React.Component {
+class VinSavor extends Component {
     constructor(props) {
         super(props);
         this.state = {
